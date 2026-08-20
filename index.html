@@ -6,188 +6,211 @@
 <title>TEKOA — O organizador da sua família</title>
 <meta name="description" content="TEKOA é o organizador da sua família pelo WhatsApp. Começando pela escola e pela saúde dos seus filhos — em breve, muito mais.">
 <style>
-  :root {
-    --ink: #1a2e2a;
-    --muted: #5c6b67;
-    --bg: #faf8f4;
-    --card: #ffffff;
-    --accent: #0f6e56;
-    --accent-light: #e1f5ee;
-    --border: #e4e0d8;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: var(--bg);
-    color: var(--ink);
-    line-height: 1.6;
-  }
-  header {
-    padding: 24px 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1080px;
-    margin: 0 auto;
-  }
-  .logo {
-    font-weight: 700;
-    font-size: 22px;
-    letter-spacing: 0.5px;
-    color: var(--accent);
-  }
-  nav a {
-    color: var(--muted);
-    text-decoration: none;
-    margin-left: 28px;
-    font-size: 15px;
-  }
-  .hero {
-    max-width: 720px;
-    margin: 60px auto 40px;
-    padding: 0 5%;
-    text-align: center;
-  }
-  .hero h1 {
-    font-size: 38px;
-    line-height: 1.25;
-    margin-bottom: 18px;
-    color: var(--ink);
-  }
-  .hero p {
-    font-size: 18px;
-    color: var(--muted);
-    margin-bottom: 28px;
-  }
-  .badge {
-    display: inline-block;
-    background: var(--accent-light);
-    color: var(--accent);
-    padding: 6px 16px;
-    border-radius: 100px;
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
-  .cta {
-    display: inline-block;
-    background: var(--accent);
-    color: white;
-    padding: 14px 32px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-  }
-  .features {
-    max-width: 1080px;
-    margin: 60px auto;
-    padding: 0 5%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-  }
-  .feature {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 28px 24px;
-  }
-  .feature .icon {
-    width: 40px;
-    height: 40px;
-    background: var(--accent-light);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    margin-bottom: 14px;
-  }
-  .feature h3 {
-    font-size: 17px;
-    margin-bottom: 8px;
-  }
-  .feature p {
-    font-size: 14px;
-    color: var(--muted);
-  }
-  .about {
-    max-width: 720px;
-    margin: 60px auto;
-    padding: 40px 5%;
-    text-align: center;
-  }
-  .about h2 {
-    font-size: 26px;
-    margin-bottom: 16px;
-  }
-  .about p {
-    color: var(--muted);
-    font-size: 16px;
-  }
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 32px 5%;
-    max-width: 1080px;
-    margin: 40px auto 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    font-size: 14px;
-    color: var(--muted);
-  }
-  footer a {
-    color: var(--muted);
-  }
+:root {
+--ink: #1a2e2a;
+--muted: #5c6b67;
+--bg: #faf8f4;
+--card: #ffffff;
+--accent: #0f6e56;
+--accent-light: #e1f5ee;
+--border: #e4e0d8;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+background: var(--bg);
+color: var(--ink);
+line-height: 1.6;
+}
+header {
+padding: 24px 5%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+max-width: 1080px;
+margin: 0 auto;
+}
+.logo {
+font-weight: 700;
+font-size: 22px;
+letter-spacing: 0.5px;
+color: var(--accent);
+}
+nav a {
+color: var(--muted);
+text-decoration: none;
+margin-left: 28px;
+font-size: 15px;
+}
+.hero {
+max-width: 720px;
+margin: 60px auto 40px;
+padding: 0 5%;
+text-align: center;
+}
+.hero h1 {
+font-size: 38px;
+line-height: 1.25;
+margin-bottom: 18px;
+color: var(--ink);
+}
+.hero p {
+font-size: 18px;
+color: var(--muted);
+margin-bottom: 28px;
+}
+.badge {
+display: inline-block;
+background: var(--accent-light);
+color: var(--accent);
+padding: 6px 16px;
+border-radius: 100px;
+font-size: 13px;
+font-weight: 600;
+margin-bottom: 20px;
+}
+.cta {
+display: inline-block;
+background: var(--accent);
+color: white;
+padding: 14px 32px;
+border-radius: 8px;
+text-decoration: none;
+font-weight: 600;
+font-size: 16px;
+}
+.features {
+max-width: 1080px;
+margin: 60px auto;
+padding: 0 5%;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 20px;
+}
+.feature {
+background: var(--card);
+border: 1px solid var(--border);
+border-radius: 12px;
+padding: 28px 24px;
+}
+.feature .icon {
+width: 40px;
+height: 40px;
+background: var(--accent-light);
+border-radius: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 20px;
+margin-bottom: 14px;
+}
+.feature h3 {
+font-size: 17px;
+margin-bottom: 8px;
+}
+.feature p {
+font-size: 14px;
+color: var(--muted);
+}
+.about {
+max-width: 720px;
+margin: 60px auto;
+padding: 40px 5%;
+text-align: center;
+}
+.about h2 {
+font-size: 26px;
+margin-bottom: 16px;
+}
+.about p {
+color: var(--muted);
+font-size: 16px;
+}
+footer {
+border-top: 1px solid var(--border);
+padding: 32px 5%;
+max-width: 1080px;
+margin: 40px auto 0;
+font-size: 14px;
+color: var(--muted);
+}
+footer .footer-top {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
+gap: 16px;
+margin-bottom: 16px;
+}
+footer a {
+color: var(--muted);
+}
+footer .legal {
+border-top: 1px solid var(--border);
+padding-top: 16px;
+font-size: 13px;
+line-height: 1.7;
+}
+footer .legal strong {
+color: var(--ink);
+}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">TEKOA</div>
-  <nav>
-    <a href="#produto">Produto</a>
-    <a href="#sobre">Sobre</a>
-    <a href="mailto:contato@tekoaapp.com.br">Contato</a>
-  </nav>
+<div class="logo">TEKOA</div>
+<nav>
+<a href="#produto">Produto</a>
+<a href="#sobre">Sobre</a>
+<a href="mailto:contato@tekoaapp.com.br">Contato</a>
+</nav>
 </header>
 
 <section class="hero">
-  <span class="badge">Em breve</span>
-  <h1>O organizador da sua família</h1>
-  <p>Tudo o que sua família precisa lembrar, resolver e organizar — direto na conversa do WhatsApp que você já usa todo dia.</p>
-  <a class="cta" href="mailto:contato@tekoaapp.com.br">Fale com a gente</a>
+<span class="badge">Em breve</span>
+<h1>O organizador da sua família</h1>
+<p>Tudo o que sua família precisa lembrar, resolver e organizar — direto na conversa do WhatsApp que você já usa todo dia.</p>
+<a class="cta" href="mailto:contato@tekoaapp.com.br">Fale com a gente</a>
 </section>
 
 <section class="features" id="produto">
-  <div class="feature">
-    <div class="icon">🏫</div>
-    <h3>Escola</h3>
-    <p>Encaminhe o bilhete, o áudio ou o print da turma. TEKOA identifica datas e avisa a família inteira.</p>
-  </div>
-  <div class="feature">
-    <div class="icon">🩺</div>
-    <h3>Saúde</h3>
-    <p>Vacinas, exames e consultas organizados por criança — sempre com o documento original guardado.</p>
-  </div>
-  <div class="feature">
-    <div class="icon">👨‍👩‍👧</div>
-    <h3>Família toda</h3>
-    <p>Pai, mãe e cuidadores recebem o que precisam saber, cada um com o acesso certo.</p>
-  </div>
+<div class="feature">
+<div class="icon">🏫</div>
+<h3>Escola</h3>
+<p>Encaminhe o bilhete, o áudio ou o print da turma. TEKOA identifica datas e avisa a família inteira.</p>
+</div>
+<div class="feature">
+<div class="icon">🩺</div>
+<h3>Saúde</h3>
+<p>Vacinas, exames e consultas organizados por criança — sempre com o documento original guardado.</p>
+</div>
+<div class="feature">
+<div class="icon">👨‍👩‍👧</div>
+<h3>Família toda</h3>
+<p>Pai, mãe e cuidadores recebem o que precisam saber, cada um com o acesso certo.</p>
+</div>
 </section>
 
 <section class="about" id="sobre">
-  <h2>Sobre a TEKOA</h2>
-  <p>TEKOA é o organizador da sua família. Começamos pelos módulos de escola e saúde — em breve, TEKOA também vai chamar o eletricista, montar a lista de compras da semana e cuidar de tudo mais que a rotina da sua casa precisa. Um único lugar para organizar a vida da família, sem mais um aplicativo para instalar.</p>
+<h2>Sobre a TEKOA</h2>
+<p>TEKOA é o organizador da sua família. Começamos pelos módulos de escola e saúde — em breve, TEKOA também vai chamar o eletricista, montar a lista de compras da semana e cuidar de tudo mais que a rotina da sua casa precisa. Um único lugar para organizar a vida da família, sem mais um aplicativo para instalar.</p>
 </section>
 
 <footer>
-  <span>© 2026 TEKOA. Todos os direitos reservados.</span>
-  <a href="mailto:contato@tekoaapp.com.br">contato@tekoaapp.com.br</a>
+<div class="footer-top">
+<span>© 2026 TEKOA. Todos os direitos reservados.</span>
+<span>
+<a href="mailto:contato@tekoaapp.com.br">contato@tekoaapp.com.br</a>
+&nbsp;·&nbsp;
+<a href="/privacidade.html">Política de Privacidade</a>
+</span>
+</div>
+<div class="legal">
+<strong>MIND THE GAP CONSULTORIA LTDA</strong> ("MTG Consultoria") — CNPJ 14.854.799/0001-98<br>
+Rua Arminda, 80, Apto 151 — Vila Olímpia — São Paulo/SP — CEP 04545-100<br>
+Telefone: (11) 3804-4087 · E-mail: contato@tekoaapp.com.br
+</div>
 </footer>
 
 </body>
