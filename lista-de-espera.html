@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tekoa — Entrar na lista de espera</title>
+<meta name="description" content="Deixe seu nome, WhatsApp e o motivo pra usar o Tekoa. O beta é fechado, por convite — avisamos quando abrir uma vaga.">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --ink: #131b26;
+    --ink-soft: #55606b;
+    --ink-faint: #8a92a0;
+    --paper: #f6f3ec;
+    --paper-dim: #eae4d5;
+    --paper-card: #ffffff;
+    --gold: #b97a1f;
+    --gold-strong: #965f14;
+    --coral: #c85f40;
+    --line: #ddd5c1;
+    --error: #a3402f;
+    --shadow: 0 1px 2px rgba(19, 27, 38, 0.06), 0 8px 24px rgba(19, 27, 38, 0.06);
+    --radius-card: 22px;
+    --radius-pill: 999px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #f3ede0;
+      --ink-soft: #b9c0c9;
+      --ink-faint: #7d8794;
+      --paper: #12181f;
+      --paper-dim: #1b232c;
+      --paper-card: #1c2530;
+      --gold: #e0a94a;
+      --gold-strong: #f0bd6a;
+      --coral: #e07a5c;
+      --error: #e8a89c;
+      --line: #2b3540;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+  p { margin: 0; }
+
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+
+  .sunline {
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--ink) 0%, var(--gold) 55%, var(--coral) 100%);
+  }
+
+  header.site {
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 16px 28px; }
+  .wordmark {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .wordmark span { color: var(--gold); }
+  .back-link { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .back-link:hover { color: var(--ink); }
+
+  main { flex: 1; display: flex; align-items: center; padding: 56px 0; }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-strong);
+    font-weight: 600;
+    margin: 0 0 14px;
+  }
+
+  h1 {
+    font-family: "Bricolage Grotesque", "Work Sans", sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin: 0 0 12px;
+  }
+
+  .intro { color: var(--ink-soft); max-width: 46ch; margin: 0 0 32px; }
+
+  .form-card {
+    background: var(--paper-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow);
+    padding: 32px;
+    max-width: 480px;
+  }
+
+  .field { margin-bottom: 20px; }
+  .field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+  }
+  .field input, .field textarea {
+    width: 100%;
+    font-family: inherit;
+    font-size: 16px;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px 14px;
+    resize: vertical;
+  }
+  .field textarea { min-height: 76px; }
+  .field input:focus, .field textarea:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: 1px;
+  }
+
+  /* honeypot: existe no DOM pra bots preencherem, invisível e fora da ordem
+     de tab pra gente de verdade nunca notar nem encostar */
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 13px 26px;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  }
+  .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .btn-primary { background: var(--ink); color: var(--paper); }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+  .btn-primary:disabled { opacity: 0.6; cursor: default; transform: none; box-shadow: none; }
+
+  .form-note {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .form-error {
+    font-size: 14px;
+    color: var(--error);
+    margin: -6px 0 18px;
+    display: none;
+  }
+  .form-error.show { display: block; }
+
+  .success {
+    display: none;
+    text-align: center;
+    padding: 8px 4px 4px;
+  }
+  .success.show { display: block; }
+  .success .stamp {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin: 0 auto 16px;
+  }
+  .success h2 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 1.3rem;
+    margin: 0 0 8px;
+  }
+  .success p { color: var(--ink-soft); }
+
+  footer { border-top: 1px solid var(--line); padding: 22px 0; }
+  .footer-legal {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    color: var(--ink-faint);
+    text-align: center;
+  }
+  .footer-legal a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<div class="sunline"></div>
+<header class="site">
+  <div class="container nav-row">
+    <a class="wordmark" href="/">Tek<span>oa</span></a>
+    <a class="back-link" href="/">← Voltar pro site</a>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <p class="eyebrow">Beta fechado, por convite</p>
+    <h1>Entra na lista de espera</h1>
+    <p class="intro">Três informações, só isso. Quando abrir uma vaga nova, chamamos você direto no WhatsApp.</p>
+
+    <div class="form-card">
+      <form id="waitlist-form" novalidate>
+        <div class="field">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" autocomplete="name" required maxlength="120">
+        </div>
+        <div class="field">
+          <label for="telefone">WhatsApp</label>
+          <input type="tel" id="telefone" name="telefone" autocomplete="tel" placeholder="(11) 99999-8888" required maxlength="30">
+        </div>
+        <div class="field">
+          <label for="motivacao">Por que você quer usar o Tekoa?</label>
+          <textarea id="motivacao" name="motivacao" required maxlength="500"></textarea>
+        </div>
+        <div class="hp" aria-hidden="true">
+          <label for="empresa">Não preencha este campo</label>
+          <input type="text" id="empresa" name="empresa" tabindex="-1" autocomplete="off">
+        </div>
+        <p class="form-error" id="form-error"></p>
+        <button type="submit" class="btn btn-primary" id="submit-btn">Entrar na lista de espera</button>
+        <p class="form-note">sem custo, sem compromisso</p>
+      </form>
+
+      <div class="success" id="success-block">
+        <div class="stamp">✓</div>
+        <h2>Você está na lista</h2>
+        <p>Assim que abrir uma vaga, chamamos você no WhatsApp que você deixou aqui.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-legal">
+    <strong>MIND THE GAP CONSULTORIA LTDA</strong> — CNPJ 14.854.799/0001-98 ·
+    <a href="mailto:contato@tekoaapp.com.br">contato@tekoaapp.com.br</a> ·
+    <a href="/privacidade.html">Política de Privacidade</a>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var API_URL = 'https://tekoa-webhook.vercel.app/api/waitlist';
+    var form = document.getElementById('waitlist-form');
+    var errorEl = document.getElementById('form-error');
+    var btn = document.getElementById('submit-btn');
+    var successBlock = document.getElementById('success-block');
+
+    function showError(msg) {
+      errorEl.textContent = msg;
+      errorEl.classList.add('show');
+    }
+    function hideError() {
+      errorEl.classList.remove('show');
+    }
+
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      hideError();
+
+      var nome = document.getElementById('nome').value.trim();
+      var telefone = document.getElementById('telefone').value.trim();
+      var motivacao = document.getElementById('motivacao').value.trim();
+      var empresa = document.getElementById('empresa').value;
+
+      if (!nome || !telefone || !motivacao) {
+        showError('Preenche os três campos pra entrar na lista.');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Enviando…';
+
+      fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome: nome, telefone: telefone, motivacao: motivacao, empresa: empresa })
+      })
+        .then(function (res) {
+          if (!res.ok) {
+            return res.json().catch(function () { return {}; }).then(function (data) {
+              throw new Error(data.error || 'Não deu pra enviar agora. Tenta de novo em instantes.');
+            });
+          }
+          return res.json();
+        })
+        .then(function () {
+          form.style.display = 'none';
+          successBlock.classList.add('show');
+        })
+        .catch(function (err) {
+          btn.disabled = false;
+          btn.textContent = 'Entrar na lista de espera';
+          showError(err.message || 'Não deu pra enviar agora. Tenta de novo em instantes.');
+        });
+    });
+  })();
+</script>
+
+</body>
+</html>
