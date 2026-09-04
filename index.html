@@ -3,214 +3,530 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TEKOA — O organizador da sua família</title>
-<meta name="description" content="TEKOA é o organizador da sua família pelo WhatsApp. Começando pela escola e pela saúde dos seus filhos — em breve, muito mais.">
+<title>Tekoa — O organizador da sua família</title>
+<meta name="description" content="O Tekoa cuida de qualquer coisa da casa que tenha prazo e exija uma ação — direto na conversa do WhatsApp que você já usa todo dia, sem aplicativo novo pra instalar.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
 <style>
-:root {
---ink: #1a2e2a;
---muted: #5c6b67;
---bg: #faf8f4;
---card: #ffffff;
---accent: #0f6e56;
---accent-light: #e1f5ee;
---border: #e4e0d8;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-background: var(--bg);
-color: var(--ink);
-line-height: 1.6;
-}
-header {
-padding: 24px 5%;
-display: flex;
-align-items: center;
-justify-content: space-between;
-max-width: 1080px;
-margin: 0 auto;
-}
-.logo {
-font-weight: 700;
-font-size: 22px;
-letter-spacing: 0.5px;
-color: var(--accent);
-}
-nav a {
-color: var(--muted);
-text-decoration: none;
-margin-left: 28px;
-font-size: 15px;
-}
-.hero {
-max-width: 720px;
-margin: 60px auto 40px;
-padding: 0 5%;
-text-align: center;
-}
-.hero h1 {
-font-size: 38px;
-line-height: 1.25;
-margin-bottom: 18px;
-color: var(--ink);
-}
-.hero p {
-font-size: 18px;
-color: var(--muted);
-margin-bottom: 28px;
-}
-.badge {
-display: inline-block;
-background: var(--accent-light);
-color: var(--accent);
-padding: 6px 16px;
-border-radius: 100px;
-font-size: 13px;
-font-weight: 600;
-margin-bottom: 20px;
-}
-.cta {
-display: inline-block;
-background: var(--accent);
-color: white;
-padding: 14px 32px;
-border-radius: 8px;
-text-decoration: none;
-font-weight: 600;
-font-size: 16px;
-}
-.features {
-max-width: 1080px;
-margin: 60px auto;
-padding: 0 5%;
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-gap: 20px;
-}
-.feature {
-background: var(--card);
-border: 1px solid var(--border);
-border-radius: 12px;
-padding: 28px 24px;
-}
-.feature .icon {
-width: 40px;
-height: 40px;
-background: var(--accent-light);
-border-radius: 10px;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 20px;
-margin-bottom: 14px;
-}
-.feature h3 {
-font-size: 17px;
-margin-bottom: 8px;
-}
-.feature p {
-font-size: 14px;
-color: var(--muted);
-}
-.about {
-max-width: 720px;
-margin: 60px auto;
-padding: 40px 5%;
-text-align: center;
-}
-.about h2 {
-font-size: 26px;
-margin-bottom: 16px;
-}
-.about p {
-color: var(--muted);
-font-size: 16px;
-}
-footer {
-border-top: 1px solid var(--border);
-padding: 32px 5%;
-max-width: 1080px;
-margin: 40px auto 0;
-font-size: 14px;
-color: var(--muted);
-}
-footer .footer-top {
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
-align-items: center;
-gap: 16px;
-margin-bottom: 16px;
-}
-footer a {
-color: var(--muted);
-}
-footer .legal {
-border-top: 1px solid var(--border);
-padding-top: 16px;
-font-size: 13px;
-line-height: 1.7;
-}
-footer .legal strong {
-color: var(--ink);
-}
+  :root {
+    --ink: #131b26;
+    --ink-soft: #55606b;
+    --ink-faint: #8a92a0;
+    --paper: #f6f3ec;
+    --paper-dim: #eae4d5;
+    --paper-card: #ffffff;
+    --gold: #b97a1f;
+    --gold-strong: #965f14;
+    --coral: #c85f40;
+    --whatsapp-out: #d9fdd3;
+    --whatsapp-in: #ffffff;
+    --line: #ddd5c1;
+    --shadow: 0 1px 2px rgba(19, 27, 38, 0.06), 0 8px 24px rgba(19, 27, 38, 0.06);
+    --radius-card: 22px;
+    --radius-pill: 999px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #f3ede0;
+      --ink-soft: #b9c0c9;
+      --ink-faint: #7d8794;
+      --paper: #12181f;
+      --paper-dim: #1b232c;
+      --paper-card: #1c2530;
+      --gold: #e0a94a;
+      --gold-strong: #f0bd6a;
+      --coral: #e07a5c;
+      --whatsapp-out: #245c40;
+      --whatsapp-in: #263039;
+      --line: #2b3540;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { max-width: 100%; }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-strong);
+    font-weight: 600;
+    margin: 0 0 14px;
+  }
+
+  h1, h2, h3 {
+    font-family: "Bricolage Grotesque", "Work Sans", sans-serif;
+    text-wrap: balance;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); font-weight: 800; line-height: 1.08; letter-spacing: -0.01em; }
+  h2 { font-size: clamp(1.7rem, 3.6vw, 2.5rem); font-weight: 700; line-height: 1.12; letter-spacing: -0.01em; }
+
+  p { margin: 0; }
+
+  .prose { max-width: 62ch; }
+
+  a { color: inherit; }
+
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  .sunline {
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--ink) 0%, var(--gold) 55%, var(--coral) 100%);
+  }
+
+  header.site {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 16px 28px;
+  }
+  .wordmark {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .wordmark span { color: var(--gold); }
+  nav.links {
+    display: flex;
+    gap: 28px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  nav.links a { text-decoration: none; color: var(--ink-soft); transition: color 0.15s ease; }
+  nav.links a:hover, nav.links a:focus-visible { color: var(--ink); }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 11px 22px;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+  .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .btn-primary { background: var(--ink); color: var(--paper); }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+  .nav-cta { display: none; }
+  @media (min-width: 720px) { .nav-cta { display: inline-flex; } }
+
+  section { padding: 88px 0; }
+  section + section { border-top: 1px solid var(--line); }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .grid-2 { grid-template-columns: 1.05fr 0.95fr; }
+  }
+
+  .headline-block { display: flex; flex-direction: column; gap: 22px; }
+  .headline-block .prose { color: var(--ink-soft); font-size: 17px; }
+
+  .trust-note {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--paper-card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px 20px;
+    box-shadow: var(--shadow);
+  }
+  .trust-note .stamp {
+    flex: none;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; font-weight: 700; color: var(--gold-strong);
+    transform: rotate(-8deg);
+  }
+  .trust-note p { font-size: 15px; color: var(--ink-soft); }
+  .trust-note strong { color: var(--ink); }
+
+  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .cta-note { font-size: 13px; color: var(--ink-faint); font-family: "IBM Plex Mono", monospace; }
+
+  .illustration-wrap { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .pinned-card {
+    position: relative;
+    background: var(--paper-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow);
+    padding: 34px 22px 26px;
+    transform: rotate(-1.4deg);
+    width: 100%;
+  }
+  .pin {
+    position: absolute;
+    top: -10px; left: 50%;
+    transform: translateX(-50%);
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--coral);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+  }
+  .illustration-caption {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  .illustration-caption b { color: var(--coral); }
+
+  .steps-copy { display: flex; flex-direction: column; gap: 22px; margin-bottom: 52px; }
+  .steps-copy .prose { color: var(--ink-soft); }
+
+  .phone-flow {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .step-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-strong);
+    font-weight: 700;
+  }
+  .snippet {
+    background: var(--paper-dim);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 14px 16px;
+    font-size: 14.5px;
+  }
+  .snippet .sender { font-weight: 700; font-size: 13px; color: var(--ink-soft); margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+  .snippet .sender .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ink-faint); }
+
+  .forward-connector {
+    display: flex; align-items: center; gap: 10px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    padding-left: 4px;
+  }
+  .forward-connector svg { flex: none; }
+
+  .whatsapp-frame {
+    background: var(--paper-card);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 18px 14px 20px;
+  }
+  .whatsapp-frame .bubble-row { display: flex; margin: 8px 0; }
+  .whatsapp-frame .bubble-row.out { justify-content: flex-end; }
+  .whatsapp-frame .bubble-row.in { justify-content: flex-start; }
+  .bubble {
+    max-width: 84%;
+    padding: 9px 13px;
+    border-radius: 13px;
+    font-size: 14.5px;
+    line-height: 1.42;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.06);
+  }
+  .bubble.out { background: var(--whatsapp-out); border-top-right-radius: 3px; color: var(--ink); }
+  .bubble.in { background: var(--whatsapp-in); border: 1px solid var(--line); border-top-left-radius: 3px; }
+  .bubble .tag {
+    font-size: 11.5px; color: var(--ink-faint); font-style: italic; margin-bottom: 2px;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .bubble .card-title { font-weight: 700; margin-bottom: 4px; }
+  .bubble .reply-btn {
+    margin-top: 10px;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold-strong);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    padding: 7px 14px;
+  }
+
+  .price-wrap { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px; }
+  .price-card {
+    background: var(--paper-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow);
+    padding: 44px 48px;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    max-width: 380px;
+  }
+  .price-value {
+    font-family: "IBM Plex Mono", monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: clamp(2.6rem, 7vw, 3.6rem);
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .price-value sup { font-size: 0.42em; vertical-align: 0.6em; margin-right: 2px; color: var(--gold-strong); }
+  .price-unit { font-family: "IBM Plex Mono", monospace; font-size: 14px; color: var(--ink-faint); letter-spacing: 0.03em; }
+  .price-sub { font-size: 15px; color: var(--ink-soft); margin-top: 6px; }
+  .price-fine { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; color: var(--ink-faint); letter-spacing: 0.02em; }
+
+  footer {
+    background: var(--paper-dim);
+    padding: 56px 0 40px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  @media (min-width: 720px) { .footer-grid { grid-template-columns: 1.1fr 1fr; } }
+  .footer-about p { color: var(--ink-soft); font-size: 15px; max-width: 46ch; }
+  .footer-legal { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; color: var(--ink-faint); line-height: 1.8; }
+  .footer-legal a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 2px; }
+  .footer-bottom {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    color: var(--ink-faint);
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
 </style>
 </head>
 <body>
 
-<header>
-<div class="logo">TEKOA</div>
-<nav>
-<a href="#produto">Produto</a>
-<a href="#sobre">Sobre</a>
-<a href="mailto:contato@tekoaapp.com.br">Contato</a>
-</nav>
+<div class="sunline"></div>
+
+<header class="site">
+  <div class="nav-row">
+    <a class="wordmark" href="#topo">Tek<span>oa</span></a>
+    <nav class="links">
+      <a href="#pra-que-serve">Pra que serve</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#precos">Preços</a>
+      <a href="mailto:contato@tekoaapp.com.br">Contato</a>
+    </nav>
+    <a class="btn btn-primary nav-cta" href="mailto:contato@tekoaapp.com.br?subject=Quero%20testar%20o%20Tekoa">Entrar na lista de espera</a>
+  </div>
 </header>
 
-<section class="hero">
-<span class="badge">Em breve</span>
-<h1>O organizador da sua família</h1>
-<p>Tudo o que sua família precisa lembrar, resolver e organizar — direto na conversa do WhatsApp que você já usa todo dia.</p>
-<a class="cta" href="mailto:contato@tekoaapp.com.br">Fale com a gente</a>
-</section>
+<main id="topo">
 
-<section class="features" id="produto">
-<div class="feature">
-<div class="icon">🏫</div>
-<h3>Escola</h3>
-<p>Encaminhe o bilhete, o áudio ou o print da turma. TEKOA identifica datas e avisa a família inteira.</p>
-</div>
-<div class="feature">
-<div class="icon">🩺</div>
-<h3>Saúde</h3>
-<p>Vacinas, exames e consultas organizados por criança — sempre com o documento original guardado.</p>
-</div>
-<div class="feature">
-<div class="icon">👨‍👩‍👧</div>
-<h3>Família toda</h3>
-<p>Pai, mãe e cuidadores recebem o que precisam saber, cada um com o acesso certo.</p>
-</div>
-</section>
+  <!-- ============ 1. PRA QUE SERVE ============ -->
+  <section id="pra-que-serve">
+    <div class="container grid-2">
+      <div class="headline-block">
+        <p class="eyebrow">O que o Tekoa faz</p>
+        <h1>Todo mundo foi de Batman. Só o seu filho não foi.</h1>
+        <p class="prose">O comunicado da turma dizia "fantasia à escolha" — e, três parágrafos depois, escondido no meio do texto: "sugestão: seu super-herói favorito". Passou batido, como sempre passa. Entre o grupo da escola, o grupo da natação e o resto da vida, ninguém consegue guardar tudo na cabeça.</p>
+        <p class="prose">O Tekoa lê o que você encaminha — bilhete, foto, print de grupo — e guarda só o que tem prazo e exige alguma ação: a fantasia de sexta, a vacina de terça, o boleto do condomínio, a visita do técnico, o passaporte vencendo. E avisa a tempo, não depois.</p>
+        <div class="trust-note">
+          <div class="stamp">LGPD</div>
+          <p><strong>Ele lembra que você precisa levar o CPF na secretaria.</strong> Mas nunca guarda o seu CPF — é assim com qualquer dado sensível: o prazo fica, o número não.</p>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:contato@tekoaapp.com.br?subject=Quero%20testar%20o%20Tekoa">Entrar na lista de espera</a>
+          <span class="cta-note">beta fechado, por convite</span>
+        </div>
+      </div>
 
-<section class="about" id="sobre">
-<h2>Sobre a TEKOA</h2>
-<p>TEKOA é o organizador da sua família. Começamos pelos módulos de escola e saúde — em breve, TEKOA também vai chamar o eletricista, montar a lista de compras da semana e cuidar de tudo mais que a rotina da sua casa precisa. Um único lugar para organizar a vida da família, sem mais um aplicativo para instalar.</p>
-</section>
+      <div class="illustration-wrap">
+        <div class="pinned-card">
+          <span class="pin" aria-hidden="true"></span>
+          <svg viewBox="0 0 420 200" width="100%" role="img" aria-label="Seis crianças em fila, cinco fantasiadas de super-herói com capa e orelhas, uma delas sem fantasia e destacada por uma seta.">
+            <g font-family="IBM Plex Mono, monospace">
+              <g transform="translate(30,60)">
+                <path d="M -20 70 Q 0 20 20 70 Z" fill="var(--coral)" opacity="0.85"/>
+                <rect x="-16" y="46" width="32" height="46" rx="14" fill="var(--ink)"/>
+                <circle cx="0" cy="30" r="20" fill="var(--ink)"/>
+                <path d="M -17 16 L -6 -2 L -2 16 Z" fill="var(--ink)"/>
+                <path d="M 17 16 L 6 -2 L 2 16 Z" fill="var(--ink)"/>
+              </g>
+              <g transform="translate(100,58)">
+                <path d="M -20 72 Q 0 22 20 72 Z" fill="var(--coral)" opacity="0.85"/>
+                <rect x="-16" y="48" width="32" height="46" rx="14" fill="var(--ink)"/>
+                <circle cx="0" cy="32" r="20" fill="var(--ink)"/>
+                <path d="M -17 18 L -6 0 L -2 18 Z" fill="var(--ink)"/>
+                <path d="M 17 18 L 6 0 L 2 18 Z" fill="var(--ink)"/>
+              </g>
+              <g transform="translate(170,62)">
+                <path d="M -20 68 Q 0 18 20 68 Z" fill="var(--coral)" opacity="0.85"/>
+                <rect x="-16" y="44" width="32" height="46" rx="14" fill="var(--ink)"/>
+                <circle cx="0" cy="28" r="20" fill="var(--ink)"/>
+                <path d="M -17 14 L -6 -4 L -2 14 Z" fill="var(--ink)"/>
+                <path d="M 17 14 L 6 -4 L 2 14 Z" fill="var(--ink)"/>
+              </g>
+
+              <g transform="translate(245,64)">
+                <circle cx="0" cy="45" r="46" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-dasharray="5 6"/>
+                <rect x="-15" y="42" width="30" height="44" rx="12" fill="var(--ink-soft)"/>
+                <circle cx="0" cy="26" r="19" fill="var(--ink-soft)"/>
+              </g>
+
+              <g transform="translate(315,60)">
+                <path d="M -20 70 Q 0 20 20 70 Z" fill="var(--coral)" opacity="0.85"/>
+                <rect x="-16" y="46" width="32" height="46" rx="14" fill="var(--ink)"/>
+                <circle cx="0" cy="30" r="20" fill="var(--ink)"/>
+                <path d="M -17 16 L -6 -2 L -2 16 Z" fill="var(--ink)"/>
+                <path d="M 17 16 L 6 -2 L 2 16 Z" fill="var(--ink)"/>
+              </g>
+              <g transform="translate(385,62)">
+                <path d="M -18 66 Q 0 20 18 66 Z" fill="var(--coral)" opacity="0.85"/>
+                <rect x="-15" y="44" width="30" height="44" rx="13" fill="var(--ink)"/>
+                <circle cx="0" cy="28" r="19" fill="var(--ink)"/>
+                <path d="M -16 14 L -6 -3 L -2 14 Z" fill="var(--ink)"/>
+                <path d="M 16 14 L 6 -3 L 2 14 Z" fill="var(--ink)"/>
+              </g>
+
+              <path d="M 245 4 Q 246 -18 246 -26" fill="none" stroke="var(--coral)" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrowhead)"/>
+              <defs>
+                <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+                  <path d="M0,0 L8,4 L0,8 Z" fill="var(--coral)"/>
+                </marker>
+              </defs>
+              <text x="245" y="-32" text-anchor="middle" font-size="11" font-weight="700" fill="var(--coral)" letter-spacing="0.5">SEU FILHO</text>
+            </g>
+          </svg>
+        </div>
+        <p class="illustration-caption">50 alunos na turma. <b>1 fantasia errada.</b></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. COMO FUNCIONA ============ -->
+  <section id="como-funciona">
+    <div class="container">
+      <div class="steps-copy" style="max-width:640px;">
+        <p class="eyebrow">A mecânica</p>
+        <h2>Você já recebe o aviso. Só encaminha.</h2>
+        <p class="prose">Nada de baixar aplicativo novo, nada de a escola mudar nada. O comunicado já chega — no grupo de pais, no aplicativo da escola, por e-mail. Você só encaminha pro Tekoa, do mesmo jeito que já encaminha pra sua mãe ou pro seu marido.</p>
+      </div>
+
+      <div class="phone-flow">
+        <div>
+          <p class="step-label">1 · Chega no grupo da turma</p>
+          <div class="snippet">
+            <p class="sender"><span class="dot"></span>Grupo 3º Período — Tia Márcia</p>
+            <p>Pessoal, lembrando: sexta é o Dia do Herói! 🦸 Fantasia à escolha da criança (sugestão: super-herói).</p>
+          </div>
+        </div>
+
+        <div class="forward-connector">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 6l7 6-7 6M13 6l7 6-7 6" stroke="var(--gold-strong)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          você encaminha pro Tekoa
+        </div>
+
+        <div class="whatsapp-frame">
+          <p class="step-label" style="margin-bottom:10px;">2 · Você encaminha · 3 · Tekoa organiza</p>
+          <div class="bubble-row out">
+            <div class="bubble out">
+              <p class="tag">↪ encaminhada</p>
+              Pessoal, lembrando: sexta é o Dia do Herói! Fantasia à escolha (sugestão: super-herói).
+            </div>
+          </div>
+          <div class="bubble-row in">
+            <div class="bubble in">
+              <p class="card-title">📌 Dia do Herói — sexta-feira</p>
+              Fantasia à escolha da criança (sugestão: super-herói).
+              <br>Toque abaixo se quiser que eu avise na véspera.
+              <div class="reply-btn">Lembrar na véspera</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. PREÇOS E REGIMES ============ -->
+  <section id="precos">
+    <div class="container price-wrap">
+      <p class="eyebrow">Sem letra miúda</p>
+      <h2>R$ 29 por mês. Pela casa toda.</h2>
+      <p class="prose" style="color:var(--ink-soft); max-width:56ch;">Mãe, pai, avó, babá: todo mundo entra na mesma conversa, sem pagar a mais por pessoa. Os primeiros 7 dias são por conta da casa — só depois disso a cobrança começa, e você é avisado antes, nunca em silêncio.</p>
+
+      <div class="price-card">
+        <div class="price-value"><sup>R$</sup>29</div>
+        <div class="price-unit">/ mês</div>
+        <p class="price-sub">por família, não por pessoa</p>
+      </div>
+
+      <p class="prose" style="color:var(--ink-soft); max-width:52ch; font-size:15px;">Renovação automática todo mês, via Pix. Cancela quando quiser, com uma frase direto no WhatsApp — sem precisar ligar pra ninguém.</p>
+
+      <div class="cta-row" style="justify-content:center;">
+        <a class="btn btn-primary" href="mailto:contato@tekoaapp.com.br?subject=Quero%20testar%20o%20Tekoa">Entrar na lista de espera</a>
+      </div>
+      <p class="price-fine">beta fechado agora · vagas limitadas, por convite</p>
+    </div>
+  </section>
+
+</main>
 
 <footer>
-<div class="footer-top">
-<span>© 2026 TEKOA. Todos os direitos reservados.</span>
-<span>
-<a href="mailto:contato@tekoaapp.com.br">contato@tekoaapp.com.br</a>
-&nbsp;·&nbsp;
-<a href="/privacidade.html">Política de Privacidade</a>
-</span>
-</div>
-<div class="legal">
-<strong>MIND THE GAP CONSULTORIA LTDA</strong> ("MTG Consultoria") — CNPJ 14.854.799/0001-98<br>
-Rua Arminda, 80, Apto 151 — Vila Olímpia — São Paulo/SP — CEP 04545-100<br>
-Telefone: (11) 3804-4087 · E-mail: contato@tekoaapp.com.br
-</div>
+  <div class="container footer-grid">
+    <div class="footer-about">
+      <p class="wordmark" style="font-size:19px; margin-bottom:10px; display:block;">Tek<span style="color:var(--gold)">oa</span></p>
+      <p>O Tekoa cuida de qualquer coisa da casa que tenha prazo e exija uma ação — hoje, amanhã, ou daqui a três meses. Direto no WhatsApp, sem aplicativo novo pra instalar.</p>
+    </div>
+    <div class="footer-legal">
+      <strong style="color:var(--ink-soft)">MIND THE GAP CONSULTORIA LTDA</strong> — CNPJ 14.854.799/0001-98<br>
+      Rua Arminda, 80, Apto 151 — Vila Olímpia — São Paulo/SP — CEP 04545-100<br>
+      contato@tekoaapp.com.br · (11) 94326-7743<br>
+      <a href="/privacidade.html">Política de Privacidade</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Tekoa. Todos os direitos reservados.</span>
+  </div>
 </footer>
 
 </body>
