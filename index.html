@@ -338,6 +338,24 @@ color: var(--ink-faint);
 display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px;
 }
 
+nav.links a.current { color: var(--ink); }
+@media (max-width: 640px) {
+.nav-row { padding: 14px 18px; gap: 12px; }
+nav.links { gap: 14px; font-size: 14px; flex-wrap: wrap; justify-content: flex-end; }
+}
+
+.dados-wrap { display: flex; flex-direction: column; gap: 40px; }
+.dados-head { display: flex; flex-direction: column; gap: 18px; max-width: 640px; }
+.dados-head .prose { color: var(--ink-soft); }
+.dados-list { display: grid; grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--line); }
+@media (min-width: 900px) { .dados-list { grid-template-columns: repeat(3, 1fr); border-top: 0; gap: 40px; } }
+.dados-item { padding: 22px 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 8px; }
+@media (min-width: 900px) { .dados-item { border-bottom: 0; border-top: 2px solid var(--ink); padding: 18px 0 0; } }
+.dados-item h3 { font-size: 1.2rem; font-weight: 700; line-height: 1.2; }
+.dados-item p { color: var(--ink-soft); font-size: 15.5px; }
+.link-seta { font-weight: 600; color: var(--ink); text-underline-offset: 3px; }
+.link-seta:hover, .link-seta:focus-visible { color: var(--gold-strong); }
+
 @media (prefers-reduced-motion: reduce) {
 * { transition: none !important; animation: none !important; }
 }
@@ -353,6 +371,7 @@ display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px;
 <nav class="links">
 <a href="#pra-que-serve">Pra que serve</a>
 <a href="#como-funciona">Como funciona</a>
+<a href="#seguranca">Seus dados</a>
 <a href="#precos">Preços</a>
 <a href="mailto:contato@tekoaapp.com.br">Contato</a>
 </nav>
@@ -487,7 +506,33 @@ Fantasia à escolha da criança (sugestão: super-herói).
 </div>
 </section>
 
-<!-- ============ 3. PREÇOS E REGIMES ============ -->
+<!-- ============ 3. SEUS DADOS ============ -->
+<section id="seguranca">
+<div class="container dados-wrap">
+<div class="dados-head">
+<p class="eyebrow">Seus dados</p>
+<h2>Você manda o aviso. Os dados continuam sendo seus.</h2>
+<p class="prose">O Tekoa guarda o que precisa para lembrar você: o prazo, a ação e quem da família está envolvido. Não pede documento, não guarda número de cartão e não vende dado a ninguém.</p>
+</div>
+<div class="dados-list">
+<div class="dados-item">
+<h3>O prazo fica, o número não</h3>
+<p>CPF e documentos de identificação não são pedidos nem guardados. O pagamento passa pela Asaas: o Tekoa não recebe nem guarda o número do seu cartão.</p>
+</div>
+<div class="dados-item">
+<h3>Apagar é uma frase</h3>
+<p>Escreva "apagar meus dados" no WhatsApp. O Tekoa confirma com você antes e, se houver cobrança recorrente, cancela junto.</p>
+</div>
+<div class="dados-item">
+<h3>Quem participa, às claras</h3>
+<p>WhatsApp (Meta), inteligência artificial (Anthropic e Google), banco de dados, hospedagem e pagamentos. Cada um com o seu papel, listado na página de segurança.</p>
+</div>
+</div>
+<p><a class="link-seta" href="/seguranca.html">Ver como o Tekoa cuida dos seus&nbsp;dados&nbsp;→</a></p>
+</div>
+</section>
+
+<!-- ============ 4. PREÇOS E REGIMES ============ -->
 <section id="precos">
 <div class="container price-wrap">
 <p class="eyebrow">Sem letra miúda</p>
@@ -520,7 +565,7 @@ Fantasia à escolha da criança (sugestão: super-herói).
 <div class="footer-legal">
 CNPJ 14.854.799/0001-98<br>
 contato@tekoaapp.com.br<br>
-<a href="/privacidade.html">Política de Privacidade</a> · <a href="/termos.html">Termos de Uso</a>
+<a href="/seguranca.html">Segurança dos dados</a> · <a href="/privacidade.html">Política de Privacidade</a> · <a href="/termos.html">Termos de Uso</a>
 </div>
 </div>
 <div class="container footer-bottom">
